@@ -6,7 +6,7 @@
  * Time: 11:51
  */
 
-namespace celtic\FGZRestClient\Response;
+namespace Celtic\FGZRestClient\Response;
 
 
 class ResponseFactory

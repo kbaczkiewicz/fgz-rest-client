@@ -6,7 +6,7 @@
  * Time: 15:28
  */
 
-namespace celtic\FGZRestClient\Request;
+namespace Celtic\FGZRestClient\Request;
 
 class CreateCardRequest extends AbstractRequest
 {

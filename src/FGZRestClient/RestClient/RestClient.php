@@ -6,10 +6,10 @@
  * Time: 10:11
  */
 
-namespace celtic\FGZRestClient\RestClient;
+namespace Celtic\FGZRestClient\RestClient;
 
-use celtic\FGZRestClient\Request\RequestInterface;
-use celtic\FGZRestClient\Response\ResponseFactory;
+use Celtic\FGZRestClient\Request\RequestInterface;
+use Celtic\FGZRestClient\Response\ResponseFactory;
 use GuzzleHttp\Client;
 
 class RestClient

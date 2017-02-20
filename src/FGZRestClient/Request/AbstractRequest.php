@@ -6,7 +6,7 @@
  * Time: 11:21
  */
 
-namespace celtic\FGZRestClient\Request;
+namespace Celtic\FGZRestClient\Request;
 
 
 abstract class AbstractRequest implements RequestInterface

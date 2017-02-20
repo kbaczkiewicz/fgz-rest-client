@@ -6,7 +6,7 @@
  * Time: 10:35
  */
 
-namespace celtic\FGZRestClient\Response;
+namespace Celtic\FGZRestClient\Response;
 
 
 class CreateCardResponse implements ResponseInterface

@@ -6,7 +6,7 @@
  * Time: 09:56
  */
 
-namespace celtic\FGZRestClient\Request;
+namespace Celtic\FGZRestClient\Request;
 
 
 interface RequestInterface

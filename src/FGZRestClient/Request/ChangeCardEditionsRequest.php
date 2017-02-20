@@ -8,7 +8,7 @@
 
 namespace Celtic\FGZRestClient\Request;
 
-class ChangeCardVisibilityRequest extends AbstractRequest
+class ChangeCardEditionsRequest extends AbstractRequest
 {
     /**
      * @return array
@@ -42,9 +42,14 @@ class ChangeCardVisibilityRequest extends AbstractRequest
         return $this->postData;
     }
 
-    public function setVisibility(string $visibility)
+    public function setEdition(string $year)
     {
-        $this->postData['change_visibility[visible]'] = $visibility;
+        $this->postData['editions[year]'] = $year ;
+    }
+
+    public function setIsGold(bool $isGold)
+    {
+        $this->postData['editions[isGold]'] = $isGold;
     }
 
 }

@@ -6,7 +6,7 @@
  * Time: 09:56
  */
 
-namespace celtic\FGZRestClient\Response;
+namespace Celtic\FGZRestClient\Response;
 
 
 interface ResponseInterface

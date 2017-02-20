@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "celtic\\FGZRestClient\\": "src/FGZRestClient"
+      "Celtic\\FGZRestClient\\": "src/FGZRestClient"
     }
   },
   "require": {
