@@ -11,6 +11,7 @@ namespace Celtic\FGZRestClient\RestClient;
 use Celtic\FGZRestClient\Request\RequestInterface;
 use Celtic\FGZRestClient\Response\ResponseFactory;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class RestClient
 {
@@ -29,20 +30,24 @@ class RestClient
     public function sendRequest($route, RequestInterface $request)
     {
         $request->setAuthenticationHeader($this->apiKey);
-        $res = $this->client->request('POST', $route,  [
-            'query' => $request->getGetData(),
-            'form_params' => $request->getPostData(),
-            'headers' => $request->getHeaders(),
-            'http_errors' => false
-        ]);
+        try {
+            $res = $this->client->request('POST', $route, [
+                'query' => $request->getGetData(),
+                'form_params' => $request->getPostData(),
+                'headers' => $request->getHeaders(),
+                'http_errors' => false
+            ]);
 
-        if ($res->getStatusCode() == 500)
-            throw new \Exception('Internal Server Error on creating a user');
-        else if ($res->getStatusCode() > 206 || $res->getStatusCode() < 200)
-            throw new \Exception('Code '.$res->getStatusCode() . ': '.$res->getBody());
+            if ($res->getStatusCode() == 500)
+                throw new \Exception('Internal Server Error. Route: '.$route);
+            else if ($res->getStatusCode() > 206 || $res->getStatusCode() < 200)
+                throw new \Exception('Code ' . $res->getStatusCode() . ': ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
 
-        $respContent = \GuzzleHttp\json_decode($res->getBody()->getContents());
-        $resp = ResponseFactory::createResponse(get_class($request), $respContent);
-        return $resp;
+            $respContent = \GuzzleHttp\json_decode($res->getBody()->getContents());
+            $resp = ResponseFactory::createResponse(get_class($request), $respContent);
+            return $resp;
+        } catch (RequestException $ex) {
+            throw new \Exception('There was a problem while processing request. Route: '.$route);
+        }
     }
 }
