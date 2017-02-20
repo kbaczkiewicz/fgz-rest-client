@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: celtic
+ * User: KBatch
  * Date: 20.02.2017
  * Time: 11:21
  */
 
-namespace Celtic\FGZRestClient\Request;
+namespace KBatch\FGZRestClient\Request;
 
 
 abstract class AbstractRequest implements RequestInterface

@@ -1,12 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: celtic
+ * User: KBatch
  * Date: 20.02.2017
  * Time: 10:35
  */
 
-namespace Celtic\FGZRestClient\Response;
+namespace KBatch\FGZRestClient\Response;
 
 
 class CreateCardResponse implements ResponseInterface

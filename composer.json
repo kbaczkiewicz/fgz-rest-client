@@ -1,5 +1,5 @@
 {
-  "name": "celtic/fgz-rest-client",
+  "name": "KBatch/fgz-rest-client",
   "description": "REST API Client for FGZ app",
   "authors": [
     {
@@ -9,10 +9,13 @@
   ],
   "autoload": {
     "psr-4": {
-      "Celtic\\FGZRestClient\\": "src/FGZRestClient"
+      "KBatch\\FGZRestClient\\": "src/FGZRestClient"
     }
   },
   "require": {
     "guzzlehttp/guzzle": "^6.2"
-  }
+  },
+  "repositories": [
+
+  ]
 }

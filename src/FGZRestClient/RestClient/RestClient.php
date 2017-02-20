@@ -1,15 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: celtic
+ * User: KBatch
  * Date: 17.02.2017
  * Time: 10:11
  */
 
-namespace Celtic\FGZRestClient\RestClient;
+namespace KBatch\FGZRestClient\RestClient;
 
-use Celtic\FGZRestClient\Request\RequestInterface;
-use Celtic\FGZRestClient\Response\ResponseFactory;
+use KBatch\FGZRestClient\Request\RequestInterface;
+use KBatch\FGZRestClient\Response\ResponseFactory;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
