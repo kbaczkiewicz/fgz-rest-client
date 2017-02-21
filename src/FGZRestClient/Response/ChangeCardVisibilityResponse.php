@@ -12,6 +12,11 @@ namespace KBatch\FGZRestClient\Response;
 class ChangeCardVisibilityResponse
 {
     private $msg;
+
+    /**
+     * ChangeCardVisibilityResponse constructor.
+     * @param $data
+     */
     public function __construct($data)
     {
         $this->msg = $data->msg;

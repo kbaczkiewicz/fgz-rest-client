@@ -11,6 +11,12 @@ namespace KBatch\FGZRestClient\Response;
 
 class ResponseFactory
 {
+    /**
+     * @param $requestType
+     * @param $data
+     * @return mixed
+     * Creates response with type based on Response type
+     */
     public static function createResponse($requestType, $data)
     {
         $respClass = str_replace('Request', 'Response', $requestType);

@@ -10,6 +10,19 @@ namespace KBatch\FGZRestClient\Request;
 
 class CreateCardRequest extends AbstractRequest
 {
+
+    protected $route = 'api/cards';
+
+    /**
+     * CreateCardRequest constructor.
+     * @param string $method
+     */
+    public function __construct($method = 'POST')
+    {
+        $this->method = $method;
+    }
+
+
     /**
      * @return array
      */

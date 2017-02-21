@@ -10,41 +10,35 @@ namespace KBatch\FGZRestClient\Request;
 
 class ChangeCardEditionsRequest extends AbstractRequest
 {
-    /**
-     * @return array
-     */
-    public function getHeaders()
-    {
-        return $this->headers;
-    }
 
-    /**
-     * @param array $headers
-     */
-    public function setHeaders($headers)
-    {
-        $this->headers = $headers;
-    }
+    private $id;
 
-    /**
-     * @return array
-     */
-    public function getGetData()
+    public function __construct($id, $method = 'POST')
     {
-        return $this->getData;
+        $this->method = $method;
+        $this->id = $id;
+        $this->route = 'api/cards/'.$id.'/editions';
     }
 
     /**
      * @return mixed
      */
-    public function getPostData()
+    public function getId()
     {
-        return $this->postData;
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function setEdition(string $year)
     {
-        $this->postData['editions[year]'] = $year ;
+        $this->postData['editions[year]'] = $year;
     }
 
     public function setIsGold(bool $isGold)

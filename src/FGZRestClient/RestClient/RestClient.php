@@ -31,6 +31,7 @@ class RestClient
         ]);
         $this->apiKey = $apiKey;
     }
+    
 
     /**
      * @param RequestInterface $request

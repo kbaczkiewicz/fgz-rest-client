@@ -15,6 +15,10 @@ class CreateCardResponse implements ResponseInterface
     private $username;
     private $password;
 
+    /**
+     * CreateCardResponse constructor.
+     * @param $data
+     */
     public function __construct($data)
     {
         $this->id = $data->id;
