@@ -19,6 +19,11 @@ class RestClient
     private $client;
     private $apiKey;
 
+    /**
+     * RestClient constructor.
+     * @param $baseUri
+     * @param $apiKey
+     */
     public function __construct($baseUri, $apiKey)
     {
         $this->client = new Client([
@@ -27,11 +32,17 @@ class RestClient
         $this->apiKey = $apiKey;
     }
 
-    public function sendRequest($route, RequestInterface $request)
+    /**
+     * @param RequestInterface $request
+     * @return mixed
+     * @throws \Exception
+     * Sends request of given type and returns response based on request type
+     */
+    public function sendRequest(RequestInterface $request)
     {
         $request->setAuthenticationHeader($this->apiKey);
         try {
-            $res = $this->client->request('POST', $route, [
+            $res = $this->client->request($request->getMethod(), $request->getRoute(), [
                 'query' => $request->getGetData(),
                 'form_params' => $request->getPostData(),
                 'headers' => $request->getHeaders(),
@@ -39,7 +50,7 @@ class RestClient
             ]);
 
             if ($res->getStatusCode() == 500)
-                throw new \Exception('Internal Server Error. Route: '.$route);
+                throw new \Exception('Internal Server Error. Route: ' . $request->getRoute());
             else if ($res->getStatusCode() > 206 || $res->getStatusCode() < 200)
                 throw new \Exception('Code ' . $res->getStatusCode() . ': ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
 
@@ -47,7 +58,7 @@ class RestClient
             $resp = ResponseFactory::createResponse(get_class($request), $respContent);
             return $resp;
         } catch (RequestException $ex) {
-            throw new \Exception('There was a problem while processing request. Route: '.$route);
+            throw new \Exception('There was a problem while processing request. Route: ' . $request->getRoute());
         }
     }
 }
