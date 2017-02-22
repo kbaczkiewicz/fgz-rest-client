@@ -19,4 +19,38 @@ class GetVoivodeshipResponse
         $this->voivodeships = $data->voivodeships;
         $this->message = $data->message;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVoivodeships()
+    {
+        return $this->voivodeships;
+    }
+
+    /**
+     * @param mixed $voivodeships
+     */
+    public function setVoivodeships($voivodeships)
+    {
+        $this->voivodeships = $voivodeships;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    
 }
