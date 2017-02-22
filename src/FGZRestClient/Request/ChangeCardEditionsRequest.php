@@ -36,12 +36,12 @@ class ChangeCardEditionsRequest extends AbstractRequest
         $this->id = $id;
     }
 
-    public function setEdition(string $year)
+    public function setEdition($year)
     {
         $this->postData['editions[year]'] = $year;
     }
 
-    public function setIsGold(bool $isGold)
+    public function setIsGold($isGold)
     {
         $this->postData['editions[isGold]'] = $isGold;
     }

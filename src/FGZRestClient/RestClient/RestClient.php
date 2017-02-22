@@ -20,15 +20,16 @@ class RestClient
     const HTTP_ACCEPTED = 202;
     const HTTP_ERROR = 500;
     const ALLOWED_CODES = array(HTTP_OK, HTTP_CREATED, HTTP_ACCEPTED);
+
     /** * @var Client Client */
     private $client;
-    /** @var string apiKey  */
+    /** @var string apiKey */
     private $apiKey;
 
     /**
      * RestClient constructor.
-     * @param $baseUri
-     * @param $apiKey
+     * @param string $baseUri
+     * @param string $apiKey
      */
     public function __construct($baseUri, $apiKey)
     {
@@ -60,7 +61,7 @@ class RestClient
                 if ($res->getStatusCode() == self::HTTP_ERROR)
                     throw new \Exception('Internal Server Error. Route: ' . $request->getRoute());
                 else {
-                    throw new \Exception('Code ' . $res->getStatusCode() . ': ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
+                    throw new \Exception('Code ' . $res->getStatusCode() . ', error: ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
                 }
             }
             $respContent = \GuzzleHttp\json_decode($res->getBody()->getContents());

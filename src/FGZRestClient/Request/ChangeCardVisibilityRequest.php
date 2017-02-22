@@ -57,7 +57,7 @@ class ChangeCardVisibilityRequest extends AbstractRequest
         return $this->postData;
     }
 
-    public function setVisibility(string $visibility)
+    public function setVisibility($visibility)
     {
         $this->postData['change_visibility[visible]'] = $visibility;
     }

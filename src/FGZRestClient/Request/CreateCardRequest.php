@@ -66,7 +66,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param string $name
      */
-    public function setName(string $name)
+    public function setName($name)
     {
         $this->postData['api_card[name]'] = $name;
     }
@@ -74,7 +74,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param string $address
      */
-    public function setAddress(string $address)
+    public function setAddress($address)
     {
         $this->postData['api_card[address]'] = $address;
 
@@ -83,7 +83,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param int $city
      */
-    public function setCity(int $city)
+    public function setCity($city)
     {
         $this->postData['api_card[city]'] = $city;
     }
@@ -91,7 +91,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param int $city
      */
-    public function setPhone(string $phone)
+    public function setPhone($phone)
     {
         $this->postData['api_card[phone]'] = $phone;
     }
@@ -99,7 +99,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param string $postal
      */
-    public function setPostal(string $postal)
+    public function setPostal($postal)
     {
         $this->postData['api_card[postal]'] = $postal;
     }
@@ -107,7 +107,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param string $nip
      */
-    public function setNip(string $nip)
+    public function setNip($nip)
     {
         $this->postData['api_card[nip]'] = $nip;
     }
@@ -115,7 +115,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param int $year
      */
-    public function setYear(int $year)
+    public function setYear($year)
     {
         $this->postData['api_card[editions][0][year]'] = $year;
     }
@@ -123,7 +123,7 @@ class CreateCardRequest extends AbstractRequest
     /**
      * @param bool $isGold
      */
-    public function setIsGold(bool $isGold)
+    public function setIsGold($isGold)
     {
         $this->postData['api_card[editions][0][isGold]'] = $isGold;
     }
