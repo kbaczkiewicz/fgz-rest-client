@@ -15,8 +15,14 @@ use GuzzleHttp\Exception\RequestException;
 
 class RestClient
 {
-
+    const HTTP_OK = 200;
+    const HTTP_CREATED = 201;
+    const HTTP_ACCEPTED = 202;
+    const HTTP_ERROR = 500;
+    const ALLOWED_CODES = array(HTTP_OK, HTTP_CREATED, HTTP_ACCEPTED);
+    /** * @var Client Client */
     private $client;
+    /** @var string apiKey  */
     private $apiKey;
 
     /**
@@ -31,7 +37,7 @@ class RestClient
         ]);
         $this->apiKey = $apiKey;
     }
-    
+
 
     /**
      * @param RequestInterface $request
@@ -50,11 +56,13 @@ class RestClient
                 'http_errors' => false
             ]);
 
-            if ($res->getStatusCode() == 500)
-                throw new \Exception('Internal Server Error. Route: ' . $request->getRoute());
-            else if ($res->getStatusCode() > 206 || $res->getStatusCode() < 200)
-                throw new \Exception('Code ' . $res->getStatusCode() . ': ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
-
+            if (!in_array($res->getStatusCode(), self::ALLOWED_CODES)) {
+                if ($res->getStatusCode() == self::HTTP_ERROR)
+                    throw new \Exception('Internal Server Error. Route: ' . $request->getRoute());
+                else {
+                    throw new \Exception('Code ' . $res->getStatusCode() . ': ' . \GuzzleHttp\json_decode($res->getBody()->getContents())->msg);
+                }
+            }
             $respContent = \GuzzleHttp\json_decode($res->getBody()->getContents());
             $resp = ResponseFactory::createResponse(get_class($request), $respContent);
             return $resp;
