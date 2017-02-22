@@ -112,6 +112,11 @@ class CreateCardRequest extends AbstractRequest
         $this->postData['api_card[nip]'] = $nip;
     }
 
+    public function setOldId($id)
+    {
+        $this->postData['api_card[oldId]'] = $id;
+    }
+
     /**
      * @param int $year
      */

@@ -15,11 +15,8 @@ use GuzzleHttp\Exception\RequestException;
 
 class RestClient
 {
-    const HTTP_OK = 200;
-    const HTTP_CREATED = 201;
-    const HTTP_ACCEPTED = 202;
     const HTTP_ERROR = 500;
-    const ALLOWED_CODES = array(HTTP_OK, HTTP_CREATED, HTTP_ACCEPTED);
+    const ALLOWED_CODES = array(200, 201, 202);
 
     /** * @var Client Client */
     private $client;
