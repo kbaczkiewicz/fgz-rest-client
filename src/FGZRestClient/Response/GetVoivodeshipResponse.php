@@ -45,12 +45,12 @@ class GetVoivodeshipResponse
     }
 
     /**
-     * @param mixed $message
+     * @param string $message
      */
     public function setMessage($message)
     {
         $this->message = $message;
     }
 
-    
+
 }

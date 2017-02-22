@@ -16,7 +16,7 @@ class GetCityResponse
 
     public function __construct($data)
     {
-        $this->cities = $data->cities ? $data->cities : "No matches";
+        $this->cities = $data->cities ? $data->cities : array();
         $this->message = $data->message;
     }
 
