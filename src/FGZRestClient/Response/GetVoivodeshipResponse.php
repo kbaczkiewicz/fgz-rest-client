@@ -9,7 +9,7 @@
 namespace KBatch\FGZRestClient\Response;
 
 
-class GetVoivodeshipResponse implements ResponseInterface 
+class GetVoivodeshipResponse implements ResponseInterface
 {
     private $voivodeships;
     private $message;
