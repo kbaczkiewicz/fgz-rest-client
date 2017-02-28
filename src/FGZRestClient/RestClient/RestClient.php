@@ -58,7 +58,7 @@ class RestClient
                 if ($res->getStatusCode() == self::HTTP_ERROR)
                     throw new \Exception('Internal Server Error. Route: ' . $request->getRoute());
                 else {
-                    throw new \Exception('!ERROR! HTTP code: ' . $res->getStatusCode() . ', route: ' . $request->getRoute());
+                    throw new \Exception($res->getBody()->getContents());
                 }
             }
             $respContent = \GuzzleHttp\json_decode($res->getBody()->getContents());
