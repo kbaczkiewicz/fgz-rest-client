@@ -19,7 +19,7 @@ class GetCategoryResponse implements ResponseInterface
      */
     public function __construct($data)
     {
-        $this->category = $data->categories;
+        $this->categories = $data->categories;
     }
 
     /**
