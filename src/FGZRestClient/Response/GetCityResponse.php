@@ -30,4 +30,14 @@ class GetCityResponse
         return $this->cities;
     }
 
+    /**
+     * @return array
+     */
+    public function getCities()
+    {
+        return $this->cities;
+    }
+
+
+
 }

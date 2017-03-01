@@ -29,4 +29,14 @@ class GetCategoryResponse implements ResponseInterface
         return $this->categories;
     }
 
+    /**
+     * @return array
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    
+
 }

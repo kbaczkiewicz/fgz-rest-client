@@ -29,5 +29,15 @@ class GetVoivodeshipResponse implements ResponseInterface
         return $this->voivodeships;
     }
 
+    /**
+     * @return array
+     */
+    public function getVoivodeships()
+    {
+        return $this->voivodeships;
+    }
+
+
+
 
 }
