@@ -25,6 +25,10 @@ class ChangeCardVisibilityRequest extends AbstractRequest
         $this->route = 'api/cards/'.$id.'/visibilities';
     }
 
+    /**
+     * Set visibility
+     * @param $visibility
+     */
     public function setVisibility($visibility)
     {
         $this->postData['change_visibility[visible]'] = $visibility;

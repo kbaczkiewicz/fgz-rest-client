@@ -17,11 +17,21 @@ class GetCityRequest extends AbstractRequest
         $this->method = $method;
         $this->route = 'api/city/autocomplete';
     }
+
+    /**
+     * Set string to match against
+     * @param $match
+     */
     public function setMatch($match)
     {
         $this->getData['str'] = $match;
     }
 
+
+    /**
+     * set voivodeship ID (not mandatory)
+     * @param $voivodeshipId
+     */
     public function setVoivodeship($voivodeshipId)
     {
         $this->getData['voivodeship'] = $voivodeshipId;
