@@ -9,47 +9,24 @@
 namespace KBatch\FGZRestClient\Response;
 
 
+use KBatch\FGZRestClient\Model\Voivodeship;
+
 class GetVoivodeshipResponse implements ResponseInterface
 {
     private $voivodeships;
-    private $message;
 
+    /**
+     * GetVoivodeshipResponse constructor.
+     * @param $data
+     * @return array of Voivodeship class objects
+     */
     public function __construct($data)
     {
-        $this->voivodeships = $data->voivodeships;
-        $this->message = $data->message;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVoivodeships()
-    {
+        $this->voivodeships = [];
+        foreach($data->voivodeships as $v) {
+            $this->voivodeships[] = new Voivodeship($v->id, $v->name);
+        }
         return $this->voivodeships;
-    }
-
-    /**
-     * @param mixed $voivodeships
-     */
-    public function setVoivodeships($voivodeships)
-    {
-        $this->voivodeships = $voivodeships;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * @param string $message
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
     }
 
 

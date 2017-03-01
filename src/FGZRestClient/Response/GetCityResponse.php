@@ -9,48 +9,25 @@
 namespace KBatch\FGZRestClient\Response;
 
 
+use KBatch\FGZRestClient\Model\City;
+
 class GetCityResponse
 {
+    /** @var array */
     private $cities;
-    private $message;
 
+    /**
+     * GetCityResponse constructor.
+     * @param array $data
+     * @return array of City class objects
+     */
     public function __construct($data)
     {
-        $this->cities = $data->cities ? $data->cities : array();
-        $this->message = $data->message;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCities()
-    {
+        $this->cities = [];
+        foreach ($data->cities as $c) {
+            $this->cities[] = new City($c->id, $c->name);
+        }
         return $this->cities;
     }
-
-    /**
-     * @param mixed $cities
-     */
-    public function setCities($cities)
-    {
-        $this->cities = $cities;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * @param mixed $message
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-    }
-
 
 }

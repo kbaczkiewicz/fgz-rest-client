@@ -9,6 +9,8 @@
 namespace KBatch\FGZRestClient\Response;
 
 
+use KBatch\FGZRestClient\Model\Category;
+
 class GetCategoryResponse implements ResponseInterface
 {
     private $categories;
@@ -16,28 +18,15 @@ class GetCategoryResponse implements ResponseInterface
     /**
      * GetCategoryResponse constructor.
      * @param $data
+     * @return array of Category class objects
      */
     public function __construct($data)
     {
-        $this->categories = $data->categories;
-    }
-
-    /**
-     * Returns array of stdclass objects(id and name)
-     * @return mixed
-     */
-    public function getCategories()
-    {
+        $this->categories = [];
+        foreach($data->categories as $c) {
+            $this->categories[] = new Category($c->id, $c->name);
+        }
         return $this->categories;
     }
-
-    /**
-     * @param mixed $categories
-     */
-    public function setCategories($categories)
-    {
-        $this->categories = $categories;
-    }
-
 
 }
