@@ -77,7 +77,11 @@ class CreateCardRequest extends AbstractRequest
     public function setAddress($address)
     {
         $this->postData['api_card[address]'] = $address;
+    }
 
+    public function setCategory($categoryId)
+    {
+        $this->postData['api_card[category]'] = $categoryId;
     }
 
     /**

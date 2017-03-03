@@ -37,6 +37,6 @@ class GetCategoryResponse implements ResponseInterface
         return $this->categories;
     }
 
-    
+
 
 }
